@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 import './Button.css';
 
-const button = props =>
-  !props.link ? (
+const button = props =>{
+ return  !props.link ? (
     <button
       className={[
         'button',
@@ -24,10 +24,16 @@ const button = props =>
         `button--${props.design}`,
         `button--${props.mode}`
       ].join(' ')}
-      to={props.link}
+
+      to={
+        {
+          pathname:`/${props.link}`
+        }
+      }
     >
       {props.children}
     </Link>
   );
+    }
 
 export default button;

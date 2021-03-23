@@ -14,7 +14,11 @@ class SinglePost extends Component {
 
   componentDidMount() {
     const postId = this.props.match.params.postId;
-    fetch('URL')
+    fetch('http://localhost:8080/feed/posts/'+postId,{
+      headers:{
+        Authorization:'Bearer '+this.props.token
+      }
+    })
       .then(res => {
         if (res.status !== 200) {
           throw new Error('Failed to fetch status');
@@ -41,9 +45,9 @@ class SinglePost extends Component {
         <h2>
           Created by {this.state.author} on {this.state.date}
         </h2>
-        <div className="single-post__image">
+        {/* <div className="single-post__image">
           <Image contain imageUrl={this.state.image} />
-        </div>
+        </div> */}
         <p>{this.state.content}</p>
       </section>
     );

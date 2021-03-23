@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Button from '../../Button/Button';
 import './Post.css';
@@ -13,10 +14,10 @@ const post = props => (
     </header>
     {/* <div className="post__image">
       <Image imageUrl={props.image} contain />
-    </div>
-    <div className="post__content">{props.content}</div> */}
+    </div> */}
+    <div className="post__content">{props.content}</div>
     <div className="post__actions">
-      <Button mode="flat" link={props.id}>
+      <Button mode="flat" link={props.id} >
         View
       </Button>
       <Button mode="flat" onClick={props.onStartEdit}>

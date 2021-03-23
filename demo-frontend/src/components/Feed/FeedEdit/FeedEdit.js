@@ -15,12 +15,12 @@ const POST_FORM = {
     touched: false,
     validators: [required, length({ min: 5 })]
   },
-  image: {
-    value: '',
-    valid: false,
-    touched: false,
-    validators: [required]
-  },
+  // image: {
+  //   value: '',
+  //   valid: false,
+  //   touched: false,
+  //   validators: [required]
+  // },
   content: {
     value: '',
     valid: false,
@@ -33,7 +33,7 @@ class FeedEdit extends Component {
   state = {
     postForm: POST_FORM,
     formIsValid: false,
-    imagePreview: null
+   // imagePreview: null
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -48,11 +48,11 @@ class FeedEdit extends Component {
           value: this.props.selectedPost.title,
           valid: true
         },
-        image: {
-          ...prevState.postForm.image,
-          value: this.props.selectedPost.imagePath,
-          valid: true
-        },
+        // image: {
+        //   ...prevState.postForm.image,
+        //   value: this.props.selectedPost.imagePath,
+        //   valid: true
+        // },
         content: {
           ...prevState.postForm.content,
           value: this.props.selectedPost.content,
@@ -122,14 +122,14 @@ class FeedEdit extends Component {
   acceptPostChangeHandler = () => {
     const post = {
       title: this.state.postForm.title.value,
-      image: this.state.postForm.image.value,
+    //  image: this.state.postForm.image.value,
       content: this.state.postForm.content.value
     };
     this.props.onFinishEdit(post);
     this.setState({
       postForm: POST_FORM,
       formIsValid: false,
-      imagePreview: null
+    //  imagePreview: null
     });
   };
 
@@ -155,7 +155,7 @@ class FeedEdit extends Component {
               touched={this.state.postForm['title'].touched}
               value={this.state.postForm['title'].value}
             />
-            <FilePicker
+            {/* <FilePicker
               id="image"
               label="Image"
               control="input"
@@ -169,7 +169,7 @@ class FeedEdit extends Component {
               {this.state.imagePreview && (
                 <Image imageUrl={this.state.imagePreview} contain left />
               )}
-            </div>
+            </div> */}
             <Input
               id="content"
               label="Content"

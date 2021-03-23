@@ -8,14 +8,16 @@ const User = sequelize.define('user', {
         primaryKey: true,
         autoIncrement: true
     },
-    name: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
     email: {
         type: Sequelize.STRING,
         allowNull: false
     },
+    password: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    token:Sequelize.STRING,
+    tokenExpiryDate:Sequelize.DATE
 })
 
 module.exports = User;

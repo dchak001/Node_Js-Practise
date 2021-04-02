@@ -95,7 +95,7 @@ exports.createPost = async (req, res, next) => {
 
 
         console.log("created");
-        return res.status(201).json({
+         res.status(201).json({
             message: 'Post created successfully',
             post: {
                 _id: post.id,
@@ -105,6 +105,8 @@ exports.createPost = async (req, res, next) => {
                 creator: { name: 'Dipan' }
             }
         });
+
+        return post;
     }
     catch (err) {
         if (!err.statusCode) {
